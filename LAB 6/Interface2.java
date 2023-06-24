@@ -1,4 +1,3 @@
-import java.lang.*;
 interface Emp {
 	public void ursalary();
 }

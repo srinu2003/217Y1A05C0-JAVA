@@ -1,5 +1,4 @@
 //HELLO
-import java.lang.*;
 import java.util.*;
 class Demo{
 	public static void main(String args[]){
@@ -13,5 +12,6 @@ class Demo{
 		else{
 			System.out.print("Not eligible for voting");
 		}
+		S.close();
 	}
 }

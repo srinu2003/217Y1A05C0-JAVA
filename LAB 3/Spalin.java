@@ -1,5 +1,4 @@
 //HELLO
-import java.lang.*;
 import java.util.*;
 class Spalin{
 	public static void main(String args[]){

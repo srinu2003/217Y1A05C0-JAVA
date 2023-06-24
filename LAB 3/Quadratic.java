@@ -1,5 +1,4 @@
 //HELLO
-import java.lang.*;
 import java.util.*;
 class Quadratic{
 	public static void main(String args[]){

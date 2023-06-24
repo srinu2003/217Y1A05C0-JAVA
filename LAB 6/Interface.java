@@ -1,4 +1,3 @@
-import java.lang.*;
 import java.util.Scanner;
 interface Multiplication {
     public void mul();
@@ -11,6 +10,7 @@ class cal implements Multiplication {
         a = s.nextInt();
         b = s.nextInt();
         System.out.println("Multiplication: "+(a*b));
+        s.close();
     }
 }
 public class Interface{
