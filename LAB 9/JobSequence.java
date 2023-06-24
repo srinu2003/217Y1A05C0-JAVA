@@ -3,18 +3,18 @@ import java.util.Scanner;
 
 public class JobSequence{
 	/*INPUT: no.of jobs:5
-	2 14
-	2 15
-	1 16
-	3 19
-	3 20
+2 14
+2 15
+1 16
+3 19
+3 20
 	 */
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter no.of jobs: ");
 		int NO_OF_JOBS = sc.nextInt();
 		int Job[][] = new int[NO_OF_JOBS][2];
-		int maxAtIndex = 0,maxDeadLine=0;
+		int maxAtIndex = 0,maxDeadLine=0,Profit=0;
 		String sequence = new String("");
 		
 		System.out.println("Enter Deadline Profit: ");
@@ -23,7 +23,7 @@ public class JobSequence{
 				Job[i][j] = sc.nextInt();
 			}
 		}
-		for (int i = 0; i < NO_OF_JOBS; i++) { //Otput: Maximum Deadline
+		for (int i = 0; i < NO_OF_JOBS; i++) { //Otput: Maximu m Deadline
 			if (maxDeadLine < Job[i][0]) {
 				maxDeadLine = Job[i][0];
 			}
@@ -39,19 +39,13 @@ public class JobSequence{
 				}
 			}
 			// System.out.println(strJob);
-			sequence += "<--" + (Integer.valueOf(strJob)+1); //System.out.println(sequence);
+			sequence =(Integer.valueOf(strJob)+1)  + "-->" + sequence ; //System.out.println(sequence);
+			Profit+=Job[maxAtIndex][1];//Profit gained
 			Job[maxAtIndex][0]=0;//Job executed
 			maxDeadLine--;
 		}
-		// int array[][] =  {
-		// 	{2,14},
-		// 	{2,15},
-		// 	{1,16},
-		// 	{3,19},
-		// 	{3,20},
-		// };
 		System.out.println("The sequence is:");
-		System.out.println(sequence);
+		System.out.println(sequence+"Gives profit:"+Profit);
 		sc.close();
 	}
 }
