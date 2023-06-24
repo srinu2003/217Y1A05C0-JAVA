@@ -1,0 +1,12 @@
+//HELLO
+import java.lang.*;
+import java.util.*;
+class Demo{
+	public static void main(String args[]){
+		Scanner S=new Scanner(System.in);
+		String age;
+		System.out.print("Enter age:");
+		age = S.nextString();
+		System.out.print(age);
+	}
+}
