@@ -1,3 +1,4 @@
+import java.lang.*;
 public class OBST
 {
     // A recursive function to calculate cost of optimal binary search tree

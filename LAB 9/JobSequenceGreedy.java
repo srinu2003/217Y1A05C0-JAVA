@@ -13,7 +13,7 @@ public class JobSequenceGreedy{
 		System.out.println("Enter no.of jobs: ");
 		int NO_OF_JOBS = sc.nextInt();
 		int Job[][] = new int[NO_OF_JOBS][2];
-		int maxAtIndex = 0,maxDeadLine=0;
+		int /*maxAtIndex = 0,*/maxDeadLine=0;
 		String sequence = new String("");
 		
 		System.out.println("Enter Deadline Profit: ");
