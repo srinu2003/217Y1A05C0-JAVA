@@ -18,18 +18,23 @@ public class OrderedSelection {
         }
 
         int[] selection = new int[R];
-        generateSelections(items, selection, 0);
+        boolean[] used = new boolean[N]; // Keep track of used items
+        generateSelections(items, selection, used, 0);
     }
 
-    public static void generateSelections(int[] items, int[] selection, int index) {
+    public static void generateSelections(int[] items, int[] selection, boolean[] used, int index) {
         if (index == selection.length) {
             printSelection(selection);//selection complete
             return;
         }
 
         for (int i = 0; i < items.length; i++) {
-            selection[index] = items[i];
-            generateSelections(items, selection, index + 1);
+            if (!used[i]) {
+                selection[index] = items[i];
+                used[i] = true; // Mark item as used
+                generateSelections(items, selection, used, index + 1);
+                used[i] = false; // Reset the used flag for backtracking
+            }
         }
     }
 
