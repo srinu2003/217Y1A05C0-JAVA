@@ -23,7 +23,7 @@ public class JobSequence{
 				Job[i][j] = sc.nextInt();
 			}
 		}
-		for (int i = 0; i < NO_OF_JOBS; i++) { //Otput: Maximu m Deadline
+		for (int i = 0; i < NO_OF_JOBS; i++) { //Otput: Maximum Deadline
 			if (maxDeadLine < Job[i][0]) {
 				maxDeadLine = Job[i][0];
 			}
