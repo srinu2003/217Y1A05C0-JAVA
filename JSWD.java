@@ -13,19 +13,19 @@ public class JSWD {
     public static int maxDeadLine = 0,maxProfit = 0;
     public static void main(String[] args) {
         final int Jobs[][] =  {
-		/* 0 */	{2,14},
-		/* 1 */	{2,15},
-		/* 3 */	{3,19},
-		/* 2 */	{1,16},
-		/* 4 */	{3,20},
+            /* 0 */	{2,14},
+            /* 1 */	{2,15},
+            /* 2 */	{1,16},
+            /* 3 */	{3,19},
+            /* 4 */	{3,20},
 		};
         int NO_OF_JOBS = Jobs.length;
-        int N = NO_OF_JOBS; // Number of items/jobs
-        for (int i = 0; i < N; i++) { //Otput: Maximu m Deadline
+        for (int i = 0; i < NO_OF_JOBS; i++) { //Otput: Maximu m Deadline
 			if (maxDeadLine < Jobs[i][0]) {
-				maxDeadLine = Jobs[i][0];
+                maxDeadLine = Jobs[i][0];
 			}
 		}
+        int N = NO_OF_JOBS; // Number of items/jobs
         int R = maxDeadLine; // Number of items/jobs to select/inorder
         
         int[][] jobs = Jobs;
@@ -39,24 +39,26 @@ public class JSWD {
         System.out.print("Job Sequence:" + Arrays.toString(jobSequence));
         System.out.println("Profit:" + maxProfit);
     }
-        public static int[] jobSequence = new int[maxDeadLine];
+    public static int[] jobSequence = new int[maxDeadLine];
 
     public static void generateSelections(int[][] jobs, int[] orderedJob, boolean[] used, int index) {
         if (index == orderedJob.length) {
             /*Here orderedJob is the Job sequence for evaluation */
             int profit = 0;
+            // System.out.print(Arrays.toString(orderedJob));
             for (int day = 0; day < orderedJob.length; day++) {
                 if (jobs[orderedJob[day]][0] >= day+1) { //On this day what job we selected, that job's deadline
-                profit += jobs[orderedJob[day]][1];           //should be <= to that day. Then that profit is gained
-                // System.out.print(day + " ");
+                profit += jobs[orderedJob[day]][1];      //should be <= to that day. Then that profit is gained
+                System.out.print(orderedJob[day] + " ");
                 }
-                else{
-                    profit=0;
-                    return;
-                }
+                // else{
+                //     profit=0;
+                //     return;
+                // }
             }
             if (maxProfit < profit) {
-                jobSequence = orderedJob;
+                jobSequence = orderedJob.clone();
+                // System.arraycopy(orderedJob, 0, jobSequence, 0, orderedJob.length-1);
                 maxProfit = profit;
             }
             System.out.print(Arrays.toString(orderedJob));
