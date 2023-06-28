@@ -6,20 +6,20 @@ public class JSWD {
     We initialize an array `Jobs` with the numbers from 1 to N.
 
     The `generateSelections()` method uses recursion to generate all possible selections.
-    It takes an array `items`, an array `selection` to store the current selection, and an `index` to track the current position in the selection.
+    It takes an array `jobs`, an array `selection` to store the current selection, and an `index` to track the current position in the selection.
     If the index is equal to the length of the selection, it means we have made a complete selection, so we print it.
-    Otherwise, for each item in the `items` array, we assign it to the current position in the selection and recursively call `generateSelections()` for the next index.
+    Otherwise, for each item in the `jobs` array, we assign it to the current position in the selection and recursively call `generateSelections()` for the next index.
     */
+    public static int maxDeadLine = 0,maxProfit = 0;
     public static void main(String[] args) {
         final int Jobs[][] =  {
-			{2,14},
-			{2,15},
-			{1,16},
-			{3,19},
-			{3,20},
+		/* 0 */	{2,14},
+		/* 1 */	{2,15},
+		/* 3 */	{3,19},
+		/* 2 */	{1,16},
+		/* 4 */	{3,20},
 		};
         int NO_OF_JOBS = Jobs.length;
-        int maxDeadLine = 0;
         int N = NO_OF_JOBS; // Number of items/jobs
         for (int i = 0; i < N; i++) { //Otput: Maximu m Deadline
 			if (maxDeadLine < Jobs[i][0]) {
@@ -28,41 +28,56 @@ public class JSWD {
 		}
         int R = maxDeadLine; // Number of items/jobs to select/inorder
         
-        int[][] items = Jobs;
-        // for (int i = 0; i < N; i++) { //Initializing items
-        //     items[i] = i + 1;
+        int[][] jobs = Jobs;
+        // for (int i = 0; i < N; i++) { //Initializing jobs
+        //     jobs[i][] = {i,i + 1};
         // }
 
-        int[] selection = new int[R];
-        boolean[] used = new boolean[N]; // Keep track of used items
-        generateSelections(items, selection, used, 0);
+        int[] orderedJob = new int[R];
+        boolean[] used = new boolean[N]; // Keep track of used jobs
+        generateSelections(jobs, orderedJob, used, 0);
+        System.out.print("Job Sequence:" + Arrays.toString(jobSequence));
+        System.out.println("Profit:" + maxProfit);
     }
+        public static int[] jobSequence = new int[maxDeadLine];
 
-    public static void generateSelections(int[][] items, int[] selection, boolean[] used, int index) {
-        if (index == selection.length) {
+    public static void generateSelections(int[][] jobs, int[] orderedJob, boolean[] used, int index) {
+        if (index == orderedJob.length) {
+            /*Here orderedJob is the Job sequence for evaluation */
             int profit = 0;
-            for (int item : selection) {
-                profit += items[item][1];
-                System.out.print(item + " ");
+            for (int day = 0; day < orderedJob.length; day++) {
+                if (jobs[orderedJob[day]][0] >= day+1) { //On this day what job we selected, that job's deadline
+                profit += jobs[orderedJob[day]][1];           //should be <= to that day. Then that profit is gained
+                // System.out.print(day + " ");
+                }
+                else{
+                    profit=0;
+                    return;
+                }
             }
-            System.out.print("Profit:"+profit);
-            System.out.println(Arrays.toString(selection));//selection complete
-            // printSelection(selection);//selection complete
+            if (maxProfit < profit) {
+                jobSequence = orderedJob;
+                maxProfit = profit;
+            }
+            System.out.print(Arrays.toString(orderedJob));
+            System.out.println("Profit:"+profit);
+            // System.out.println(Arrays.toString(orderedJob)+"profit:"+profit);//orderedJob complete
+            // printSelection(orderedJob);//orderedJob complete
             return;
         }
 
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < jobs.length; i++) {
             if (!used[i]) {
-                selection[index] = i;
+                orderedJob[index] = i;
                 used[i] = true; // Mark item as used
-                generateSelections(items, selection, used, index + 1);
+                generateSelections(jobs, orderedJob, used, index + 1);
                 used[i] = false; // Reset the used flag for backtracking
             }
         }
     }
 
-    // public static void printSelection(int[] selection) {
-    //     for (int item : selection) {
+    // public static void printSelection(int[] orderedJob) {
+    //     for (int item : orderedJob) {
     //         System.out.print(item + " ");
     //     }
     //     System.out.println();
