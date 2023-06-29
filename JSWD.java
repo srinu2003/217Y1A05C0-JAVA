@@ -1,16 +1,15 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JSWD {
     /*
-    In this program, we set N and D to make an ordered Execution of D jobs from a set of N jobs.
+    In this program, we set N and R to make an ordered Execution of R jobs from a set of N jobs.
     We initialize an array `Jobs` with the numbers from 1 to N.
 
     The `generateSelections()` method uses recursion to generate all possible selections.
-    It takes an array `jobs`, an array `selection` to store the current selection, and an `index` to track the current position in the selection.
-    If the index is equal to the length of the selection, it means we have made a complete selection, so we print it.
-    Otherwise, for each item in the `jobs` array, we assign it to the current position in the selection and recursively call `generateSelections()` for the next index.
+    It takes an array `jobs`, an array `orderedJob` to store the current selection, and an `index` to track the current position in the orderedJob.
+    If the index is equal to the length of the orderedJob, it means we have made a complete ordered_selection, so we print it.
+    Otherwise, for each item in the `jobs` array, we assign it to the current position in the orderedJob and recursively call `generateSelections()` for the next index.
     */
     public static int maxDeadLine = 0,maxProfit = 0;
     public static void main(String[] args) {
@@ -21,8 +20,8 @@ public class JSWD {
         final int Jobs[][] =  new int[NO_OF_JOBS][2];
 
 		for (int i = 0; i < NO_OF_JOBS; i++) { //Takes: values
+            System.out.print("Enter Deadline,Profit of Job{"+(i+1)+"}: ");
 			for (int j = 0; j < 2; j++) {
-                System.out.print("Enter Deadline,Profit of Job{"+(i+1)+"}: ");
 				Jobs[i][j] = sc.nextInt();
 			}
 		}
@@ -50,12 +49,10 @@ public class JSWD {
             ArrayList<Integer> sequenceList = new ArrayList<Integer>();
             // sequenceList.clear();
             int profit = 0;
-            // System.out.print(Arrays.toString(orderedJob));
             for (int day = 0; day < orderedJob.length; day++) {
                 if (jobs[orderedJob[day]][0] >= day+1) { //On this day what job we selected, that job's deadline
                 profit += jobs[orderedJob[day]][1];      //should be <= to that day. Then that profit is gained
                 sequenceList.add(orderedJob[day]+1);
-                // System.out.print(orderedJob[day] + " ");
                 }
             }
 
