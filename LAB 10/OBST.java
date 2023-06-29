@@ -1,56 +1,83 @@
-import java.lang.*;
+import java.util.Arrays;
+
+/**
+ * OBSTMatrix
+ * Constructs an OBST Matrix
+ */
+class OBSTMatrix {
+    public int[][][] Matrix;
+    public static int[] p,q;
+    OBSTMatrix(int NO_OF_KEYS,int[] p,int[] q){
+        OBSTMatrix.p = p;
+        OBSTMatrix.q = q;
+        Matrix = new int[NO_OF_KEYS+1][NO_OF_KEYS+1][3];
+        for (int n = 0; n <= NO_OF_KEYS; n++) {
+            System.out.println("For i-j = "+ n +":");
+            int i = 0 ,j = n;
+            while(j-i == n && i <= NO_OF_KEYS && j <= NO_OF_KEYS ) {
+                setWeight(Matrix, i, j);
+                setCostRoot(Matrix,i,j);
+                System.out.println("{w,c,r}("+i+","+j+"):"+Arrays.toString(Matrix[i][j]));
+                i++;
+                j++;
+            }
+            // j++;
+        }
+    }
+    
+    public static int[] Min(int[][][] args,int i ,int j) {
+        int min = args[i][i][1] + args[i+1][j][1];
+        int minAt = i+1;
+        for (int k = i+1; k <= j; k++) {
+            int sum = args[i][k-1][1] + args[k][j][1];
+            if (min > sum) {
+                min = sum;
+                minAt = k ;
+            }
+        }
+        // System.out.println(Arrays.toString(new int[] {min,minAt}));
+        return new int[] {min,minAt};
+    }
+    public static void setCostRoot(int[][][] args,int i, int j) {
+        if (i==j) {
+            args[i][j][1] = 0;
+            args[i][j][2] = 0;
+        }
+        else{
+            args[i][j][1] += args[i][j][0];
+            int min[]  = Min(args,i,j);
+            args[i][j][1] += min[0];
+            args[i][j][2] = min[1];
+        }
+    }
+    public static void setWeight(int[][][] args,int i, int j) {
+        if (i==j) {
+            args[i][j][0] = q[i];
+        }
+        else{
+            args[i][j][0] = args[i][j-1][0] + p[j-1] + q[j];
+        }
+    }
+}
 public class OBST
 {
-    // A recursive function to calculate cost of optimal binary search tree
-    static int optCost(int freq[], int i, int j)
-    {
-       // Base cases
-       if (j < i)      // no elements in this subarray
-         return 0;
-       if (j == i)     // one element in this subarray
-         return freq[i];
-      
-       // Get sum of freq[i], freq[i+1], ... freq[j]
-       int fsum = sum(freq, i, j);
-      
-       // Initialize minimum value
-       int min = Integer.MAX_VALUE;
-      
-       /* One by one consider all elements as root and recursively find cost of the BST, compare the cost with min and update min if needed   */
-       for (int r = i; r <= j; ++r)
-       {
-           int cost = optCost(freq, i, r-1) +
-                          optCost(freq, r+1, j);
-           if (cost < min)
-              min = cost;
-       }
-       // Return minimum value
-       return min + fsum;
-    }
-    // The main function that calculates minimum cost of
-    // a Binary Search Tree. It mainly uses optCost() to find the optimal cost.
-    static int optimalSearchTree(int keys[], int freq[], int n)
-    {
-        // Here array keys[] is assumed to be sorted in
-        // increasing order. If keys[] is not sorted, then add code to sort keys, and
-	      //rearrange freq[] accordingly.
-         return optCost(freq, 0, n-1);
-    }
-     
-    // A utility function to get sum of array elements freq[i] to freq[j]
-    static int sum(int freq[], int i, int j)
-    {
-        int s = 0;
-        for (int k = i; k <=j; k++)
-           s += freq[k];
-        return s;
-    }
-     
-    // Driver code
+    public static int NO_OF_KEYS;
     public static void main(String[] args) {
-        int keys[] = {3,3,1,1};
-        int freq[] = {2,3,1,1,1};
-        int n = keys.length;
-        System.out.println("Cost of Optimal BST is:" + optimalSearchTree(keys, freq, n));
+        System.out.println("Enter no. of keywords");
+		// Scanner sc=new Scanner(System.in);
+		// NO_OF_KEYS=sc.nextInt();
+        int[] p = {1,2,4,2};
+        int[] q = {1,2,1,4,1};//new int[NO_OF_KEYS];
+        NO_OF_KEYS = p.length;
+        OBSTMatrix mat = new OBSTMatrix(NO_OF_KEYS,p,q);
+        // System.out.println(Arrays.toString(mat.Matrix));
+        for (int[][] i : mat.Matrix) {
+            for (int[] j : i) {
+                System.out.print(Arrays.toString(j));
+            }
+            System.out.println();
+            // System.out.println(Arrays.toString(i));
+        }
+        // sc.close();
     }
 }
