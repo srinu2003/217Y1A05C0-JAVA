@@ -1,4 +1,6 @@
-import java.util.Arrays;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class JSWD {
     /*
@@ -12,15 +14,19 @@ public class JSWD {
     */
     public static int maxDeadLine = 0,maxProfit = 0;
     public static void main(String[] args) {
-        final int Jobs[][] =  {
-            /* 0 */	{2,14},
-            /* 1 */	{2,15},
-            /* 2 */	{1,16},
-            /* 3 */	{3,19},
-            /* 4 */	{3,20},
-		};
-        int NO_OF_JOBS = Jobs.length;
-        for (int i = 0; i < NO_OF_JOBS; i++) { //Otput: Maximu m Deadline
+        Scanner sc = new Scanner(System.in);
+		// sc.useDelimiter(","  javaWhitespace);
+        System.out.print("Enter no.of jobs: ");
+		int NO_OF_JOBS = sc.nextInt();
+        final int Jobs[][] =  new int[NO_OF_JOBS][2];
+
+		for (int i = 0; i < NO_OF_JOBS; i++) { //Takes: values
+			for (int j = 0; j < 2; j++) {
+                System.out.print("Enter Deadline,Profit of Job{"+(i+1)+"}: ");
+				Jobs[i][j] = sc.nextInt();
+			}
+		}
+        for (int i = 0; i < NO_OF_JOBS; i++) { //Opts: Maximum Deadline
 			if (maxDeadLine < Jobs[i][0]) {
                 maxDeadLine = Jobs[i][0];
 			}
@@ -28,43 +34,39 @@ public class JSWD {
         int N = NO_OF_JOBS; // Number of items/jobs
         int R = maxDeadLine; // Number of items/jobs to select/inorder
         
-        int[][] jobs = Jobs;
-        // for (int i = 0; i < N; i++) { //Initializing jobs
-        //     jobs[i][] = {i,i + 1};
-        // }
-
         int[] orderedJob = new int[R];
         boolean[] used = new boolean[N]; // Keep track of used jobs
-        generateSelections(jobs, orderedJob, used, 0);
-        System.out.print("Job Sequence:" + Arrays.toString(jobSequence));
+        generateSelections(Jobs, orderedJob, used, 0); //Gives P(N,R) ordered selections
+        System.out.print("Job Sequence:" + jobSequence);
         System.out.println("Profit:" + maxProfit);
+        sc.close();
     }
-    public static int[] jobSequence = new int[maxDeadLine];
-
+    public static ArrayList<Integer> jobSequence = new ArrayList<Integer>(maxDeadLine);
+    
     public static void generateSelections(int[][] jobs, int[] orderedJob, boolean[] used, int index) {
         if (index == orderedJob.length) {
-            /*Here orderedJob is the Job sequence for evaluation */
+            /* Evaluating OrderedJob
+             * Here orderedJob is the Job sequence for evaluation */
+            ArrayList<Integer> sequenceList = new ArrayList<Integer>();
+            // sequenceList.clear();
             int profit = 0;
             // System.out.print(Arrays.toString(orderedJob));
             for (int day = 0; day < orderedJob.length; day++) {
                 if (jobs[orderedJob[day]][0] >= day+1) { //On this day what job we selected, that job's deadline
                 profit += jobs[orderedJob[day]][1];      //should be <= to that day. Then that profit is gained
-                System.out.print(orderedJob[day] + " ");
+                sequenceList.add(orderedJob[day]+1);
+                // System.out.print(orderedJob[day] + " ");
                 }
-                // else{
-                //     profit=0;
-                //     return;
-                // }
             }
+
             if (maxProfit < profit) {
-                jobSequence = orderedJob.clone();
-                // System.arraycopy(orderedJob, 0, jobSequence, 0, orderedJob.length-1);
+                jobSequence = sequenceList;
                 maxProfit = profit;
             }
-            System.out.print(Arrays.toString(orderedJob));
+
+            System.out.print(sequenceList);
             System.out.println("Profit:"+profit);
             // System.out.println(Arrays.toString(orderedJob)+"profit:"+profit);//orderedJob complete
-            // printSelection(orderedJob);//orderedJob complete
             return;
         }
 
@@ -77,11 +79,4 @@ public class JSWD {
             }
         }
     }
-
-    // public static void printSelection(int[] orderedJob) {
-    //     for (int item : orderedJob) {
-    //         System.out.print(item + " ");
-    //     }
-    //     System.out.println();
-    // }
 }
