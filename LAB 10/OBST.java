@@ -1,5 +1,17 @@
 import java.util.Arrays;
 
+/** 
+ * Node
+ */
+class Node {
+
+    public int root;
+    public Node lNode,rNode;
+    public Node(int root){
+        this.root = root;
+        lNode = rNode = null;
+    }
+}
 /**
  * OBSTMatrix
  * Constructs an OBST Matrix
@@ -12,16 +24,15 @@ class OBSTMatrix {
         OBSTMatrix.q = q;
         Matrix = new int[NO_OF_KEYS+1][NO_OF_KEYS+1][3];
         for (int n = 0; n <= NO_OF_KEYS; n++) {
-            System.out.println("For i-j = "+ n +":");
+            // System.out.println("For i-j = "+ n +":");
             int i = 0 ,j = n;
             while(j-i == n && i <= NO_OF_KEYS && j <= NO_OF_KEYS ) {
                 setWeight(Matrix, i, j);
                 setCostRoot(Matrix,i,j);
-                System.out.println("{w,c,r}("+i+","+j+"):"+Arrays.toString(Matrix[i][j]));
+                // System.out.println("{w,c,r}("+i+","+j+"):"+Arrays.toString(Matrix[i][j]));
                 i++;
                 j++;
             }
-            // j++;
         }
     }
     
@@ -35,7 +46,6 @@ class OBSTMatrix {
                 minAt = k ;
             }
         }
-        // System.out.println(Arrays.toString(new int[] {min,minAt}));
         return new int[] {min,minAt};
     }
     public static void setCostRoot(int[][][] args,int i, int j) {
@@ -70,13 +80,15 @@ public class OBST
         int[] q = {1,2,1,4,1};//new int[NO_OF_KEYS];
         NO_OF_KEYS = p.length;
         OBSTMatrix mat = new OBSTMatrix(NO_OF_KEYS,p,q);
-        // System.out.println(Arrays.toString(mat.Matrix));
-        for (int[][] i : mat.Matrix) {
-            for (int[] j : i) {
-                System.out.print(Arrays.toString(j));
+        for (int n = 0; n <= NO_OF_KEYS; n++) {
+            int i = 0 ,j = n;
+            System.out.println("For i-j = "+ n +":");
+            while(j-i == n && i <= NO_OF_KEYS && j <= NO_OF_KEYS ) {
+                System.out.print(Arrays.toString(mat.Matrix[i][j]));
+                i++;
+                j++;
             }
             System.out.println();
-            // System.out.println(Arrays.toString(i));
         }
         // sc.close();
     }

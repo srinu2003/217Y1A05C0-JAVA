@@ -5,23 +5,26 @@ class OBST72{
 		System.out.println("Enter no. of keywords");
 		Scanner sc=new Scanner(System.in);
 		NO_OF_KEYS=sc.nextInt();
+		sc.nextLine();
 		int p[]= new int[NO_OF_KEYS];
 		int q[]= new int[NO_OF_KEYS+1];
-		int w[][]= new int[NO_OF_KEYS][NO_OF_KEYS];
-		int c[][]= new int[NO_OF_KEYS][NO_OF_KEYS];
-		int r[][]= new int[NO_OF_KEYS][NO_OF_KEYS];
+		int w[][]= new int[NO_OF_KEYS+1][NO_OF_KEYS+1];
+		int c[][]= new int[NO_OF_KEYS+1][NO_OF_KEYS+1];
+		int r[][]= new int[NO_OF_KEYS+1][NO_OF_KEYS+1];
 		int kArray[]= new int[NO_OF_KEYS];
 		String keywords[]= new String[NO_OF_KEYS];
-		System.out.println("Enter "+NO_OF_KEYS+" keywords");
-		for(i=0;i<=NO_OF_KEYS;i++){
+		System.out.println("Enter "+NO_OF_KEYS+" keywords:");
+		
+		for(i=0;i<keywords.length;i++){
 			keywords[i]=sc.nextLine();
 		}
+		System.out.println(Arrays.toString(keywords));
 		System.out.println("Enter "+NO_OF_KEYS+" values for p");
 		for(i=0;i<NO_OF_KEYS;i++){
 			p[i]=sc.nextInt();
 		}
 		System.out.println("Enter "+(NO_OF_KEYS+1)+" values for q");
-		for(i=0;i<NO_OF_KEYS;i++){
+		for(i=0;i<=NO_OF_KEYS;i++){
 			q[i]=sc.nextInt();
 		}
 
@@ -33,7 +36,7 @@ class OBST72{
 		}
 		for(i=0;i<NO_OF_KEYS;i++){
 			for(j=i+1;j<=NO_OF_KEYS;j++){
-				w[i][j]=q[j]+p[j]+w[i][j-1];
+				w[i][j]=q[j]+p[j-1]+w[i][j-1];
 				n=i+1;
 				for(k=n;k<=j;k++){
 					c[i][j]=c[i][k-1]+c[k][j]+w[i][j];
