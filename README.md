@@ -3,22 +3,22 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
 
 ## Contents
 ### JAVA:
-- [x] Temperature Conversion
-- [x] Factorial
-- [x] Fibonacci
-- [x] Tower of Hanoi
-- [x] Water Jub Steps
-- [ ] Missionaries and Cannibals   
+- [x] [LAB 1](https://github.com/srinu2003/217Y1A05C0-JAVA)
+- [ ] LAB 2
+- [ ] LAB 3
+- [ ] LAB 4
+- [ ] LAB 5
+- [ ] LAB 6
 ### DAA:
-- [x] 8 Puzzle
-- [x] N Queen
-- [x] Tic Tac Toe
-- [x] Traveling Sales Man
-- [x] A Star
-- [x] Hill Climbing
-- [x] Water Jub BFS
-- [x] Water Jug DFS 
-
+- [ ] LAB 7
+- [ ] INTERNAL 1
+- [ ] LAB 8
+- [ ] LAB 9
+- [ ] LAB 10
+- [ ] LAB 11
+- [ ] LAB 12
+- [ ] LAB 13
+- [ ] INTERNAL 2
 ## License
 
 This repository is licensed under the MLRITM License.
