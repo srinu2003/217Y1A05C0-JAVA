@@ -1,4 +1,4 @@
-public class APST {
+public class APSP {
     public static void main(String[] args) {
         int[][] p = {   { 0, 6,14},
                         { 6, 0, 2},
