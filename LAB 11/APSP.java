@@ -4,13 +4,13 @@ public class APSP {
                         { 6, 0, 2},
                         {14, 2, 0}};
         int n = p.length;
-        OptimalAPST(p,n);
+        OptimalAPSP(p,n);
     }
     /**
      * This is to solve All Pair Shortest Path probem
      * using  Dynamic programming
      */
-    public static void OptimalAPST(int a[][],int n){
+    public static void OptimalAPSP(int a[][],int n){
         for(int k = 0;k<n;k++){ //recuring : Dynamic programming
             for(int i = 0; i<n;i++){
                 for(int j = 0; j<n;j++){
@@ -18,7 +18,7 @@ public class APSP {
                 }
             }
         }
-        System.out.println("All Pair Shortest Pathis :");
+        System.out.println("All Pair Shortest Path is:");
         for(int i = 0; i<n;i++){
             for(int j = 0; j<n;j++){
                 System.out.print(a[i][j]+", ");
