@@ -3,11 +3,11 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
 
 ## Contents
 ### JAVA:
-- [x] [LAB 1](https://github.com/srinu2003/217Y1A05C0-JAVA)
-- [ ] [LAB 2](https://github.com/srinu2003/217Y1A05C0-JAVA/tree/main/LAB%202)
-- [ ] [LAB 3](https://github.com/srinu2003/217Y1A05C0-JAVA/tree/main/LAB%203)
-- [ ] [LAB 4](https://github.com/srinu2003/217Y1A05C0-JAVA/tree/main/LAB%204)
-- [ ] [LAB 5](https://github.com/srinu2003/217Y1A05C0-JAVA/tree/main/LAB%205)
+- [ ] [LAB 1](LAB%202)
+- [x] [LAB 2](LAB%202)
+- [ ] [LAB 3](LAB%203)
+- [ ] [LAB 4](LAB%204)
+- [ ] [LAB 5](LAB%205)
 - [ ] LAB 6
 ### DAA:
 - [ ] LAB 7
