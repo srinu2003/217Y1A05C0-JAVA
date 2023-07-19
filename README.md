@@ -11,14 +11,14 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
 - [x] LAB 6
 ### DAA:
 - [x] LAB 7
-- [x] INTERNAL 1
+- [x] [INTERNAL 1](<INTERNAL 1>)
 - [x] LAB 8
 - [x] LAB 9
 - [x] LAB 10
 - [ ] [LAB 11](<LAB 11>)
 - [ ] LAB 12
 - [ ] LAB 13
-- [x] INTERNAL 2
+- [x] [INTERNAL 2](<INTERNAL 2>)
 <!-- ## License
 
 This repository is licensed under the MLRITM License.
