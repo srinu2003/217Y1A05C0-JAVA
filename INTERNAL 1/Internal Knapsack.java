@@ -44,12 +44,12 @@ public class Knapsack {
         double Profit = 0.00;
         for (int i = 0;i<objCount;i++){
             if(weight[i]<W){
-                Profit=Profit + (double)profit[i];
-                W = W - weight[i];
+                Profit += (double)profit[i];
+                W -= weight[i];
             }else{
                 if(W>0){
-                    Profit = Profit +(double)((weight[i]*profit[i])/(double)W);
-                    W = W-W;
+                    Profit += (double)((weight[i]*profit[i])/(double)W);
+                    W -= W;
                 }
             }
         }
