@@ -7,11 +7,11 @@ public class APSP {
         OptimalAPSP(p,n);
     }
     /**
-     * This is to solve All Pair Shortest Path probem
+     * This is to solve All Pair Shortest Path problem
      * using  Dynamic programming
      */
     public static void OptimalAPSP(int a[][],int n){
-        for(int k = 0;k<n;k++){ //recuring : Dynamic programming
+        for(int k = 0;k<n;k++){ //recurring : Dynamic programming
             for(int i = 0; i<n;i++){
                 for(int j = 0; j<n;j++){
                     a[i][j] = Math.min(a[i][j],a[i][k]+a[k][j]);

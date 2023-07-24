@@ -43,6 +43,6 @@ public class GraphColoring {
             {1, 1, 0, 1},
             {1, 0, 1, 0}
         };
-        new GraphC(graph).graphColoring();
+        new GraphColoring(graph).graphColoring();
     }
 }

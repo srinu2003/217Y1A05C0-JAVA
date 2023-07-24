@@ -74,6 +74,9 @@ return true;
 }
 
 public class GraphC{
+public GraphC(int[][] graph) {
+    }
+
 public static void main(String args[]){
 //define vertices
 Vertex vertices[]= {new Vertex("A"), new Vertex("B"), new Vertex("C"), new Vertex("D")};
@@ -102,5 +105,8 @@ System.out.println(vertex.name + " "+ vertex.color +"\n");
 }
 
 }
+}
+
+public void graphColoring() {
 }
 }

@@ -11,7 +11,7 @@ public class NQueens {
     private static void Dynamic(int[] q, int n, int row) {
         if (row == n) {
             // All queens are placed successfully, print the solution
-            System.out.println("All:"+Arrays.toString(q));
+            System.out.println("Columns"+Arrays.toString(q));
             return;
         }
 
