@@ -32,8 +32,8 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
     2. Optimal BST
     3. Knapsack (Dynamic)
 - [`LAB 11`](<LAB 11>)
-    1. Sum of Subset
-    2. Graph Colouring
+    1. Sum of Subset (Backtracking)
+    2. Graph Colouring (Backtracking)
     3. All Pair Shortest Path
     4. Travelling Scales Person
 - [`INTERNAL 2`](<INTERNAL 2>)
