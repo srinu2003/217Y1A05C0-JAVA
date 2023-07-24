@@ -8,34 +8,34 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
     1. Installing java
     2. Running Hello World
 + [`LAB 2`](<LAB 2>)
-+ [`LAB 3``](<LAB 3>)
-+ [`LAB 4``](<LAB 4>)
-+ [`LAB 5``](<LAB 5>)
-+ [`LAB 6``](<LAB 6>)
++ [LAB 3](<LAB 3>)
++ [LAB 4](<LAB 4>)
++ [LAB 5](<LAB 5>)
++ [LAB 6](<LAB 6>)
 
 ### DAA:
-- [`LAB 7``](<LAB 7>)
+- [LAB 7](<LAB 7>)
     1. KnapSack (Greedy)
     <!-- 2. -->
-- [`INTERNAL 1`](<INTERNAL 1>)
+- [INTERNAL 1](<INTERNAL 1>)
     + Knapsack (Greedy)
-- [`LAB 8``](<LAB 8>)
+- [LAB 8](<LAB 8>)
     1. Prims
     2. Kruskals
-- [`LAB 9``](<LAB 9>)
+- [LAB 9](<LAB 9>)
     1. JobSequence (Greedy)
     <!-- 2. JobSequence -->
     3. Single Source Shortest Path
-- [`LAB 10``](<LAB 10>)
+- [LAB 10](<LAB 10>)
     1. N Queen's
     2. Optimal BST
     3. Knapsack (Dynamic)
-- [`LAB 11``](<LAB 11>)
+- [LAB 11](<LAB 11>)
     1. Sum of Subset
     2. Graph Colouring
     3. All Pair Shortest Path
     4. Travelling Scales Person
-- [`INTERNAL 2``](<INTERNAL 2>)
+- [INTERNAL 2](<INTERNAL 2>)
 <!-- ## License
 
 This repository is licensed under the MLRITM License.
