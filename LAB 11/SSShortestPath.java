@@ -1,6 +1,6 @@
 import java.util.*;
 
-class ShortestPath {
+class SSShortestPath {
     static class Edge { int d, w; Edge(int d, int w) { this.d = d; this.w = w; } }
     static void dijkstra(int s, List<Edge>[] g, int[] d) {
         Arrays.fill(d, Integer.MAX_VALUE);
