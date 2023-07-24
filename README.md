@@ -37,6 +37,8 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
     3. All Pair Shortest Path
     4. Travelling Scales Person
 - [`INTERNAL 2`](<INTERNAL 2>)
+    1. All Pair Shortest Path (Dynamic)
+    2. Applets (Checkbox, Textfield)
 <!-- ## License
 
 This repository is licensed under the MLRITM License.
