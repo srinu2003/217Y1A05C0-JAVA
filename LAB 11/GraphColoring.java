@@ -1,106 +1,48 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-class Vertex {
-String name;
-List<Vertex> adjacentVertices;
-boolean colored;
-String color;
+public class GraphColoring {
 
-public Vertex(String name) {
-this.name = name;
-this.adjacentVertices = new ArrayList<>();
-this.colored =false;
-this.color = "";
-}
+    private int V;
+    private int[] colors;
+    private int[][] graph;
 
-//connect two verticess bi-directional
-public void addNeighbor(Vertex vertex){
-this.adjacentVertices.add(vertex);
-vertex.adjacentVertices.add(this);
-}
-}
+    public GraphColoring(int[][] graph) {
+        this.graph = graph;
+        V = graph.length;
+        colors = new int[V];
+        Arrays.fill(colors, -1);
+    }
 
-class Coloring {
-String colors[];
-int colorCount;
-int numberOfVertices;
+    public void graphColoring() {
+        if (colorGraph(0))
+            System.out.println("Graph can be colored: " + Arrays.toString(colors));
+        else
+            System.out.println("Graph cannot be colored.");
+    }
 
-public Coloring(String[] colors, int N) {
-this.colors = colors;
-this.numberOfVertices = N;
-}
+    private boolean isSafe(int v, int c) {
+        return Arrays.stream(graph[v]).noneMatch(neighbour -> c == colors[neighbour]);
+    }
 
-public boolean setColors(Vertex vertex){
-//Step: 1
-for(int colorIndex=0; colorIndex<colors.length; colorIndex++){
-//Step-1.1: checking validity
-if(!canColorWith(colorIndex, vertex))
-continue;
+    private boolean colorGraph(int v) {
+        if (v == V) return true;
+        for (int c = 0; c < V; c++) {
+            if (isSafe(v, c)) {
+                colors[v] = c;
+                if (colorGraph(v + 1)) return true;
+                colors[v] = -1;
+            }
+        }
+        return false;
+    }
 
-//Step-1.2: continue coloring
-vertex.color=colors[colorIndex];
-vertex.colored=true;
-colorCount++;
-//Step-1.3: check whether all vertices colored?
-if(colorCount== numberOfVertices) //base case
-return true;
-
-//Step-1.4: next uncolored vertex
-for(Vertex nbrvertex: vertex.adjacentVertices){
-if (!nbrvertex.colored){
-if(setColors(nbrvertex))
-return true;
-}
-}
-
-}
-
-//Step-4: backtrack
-vertex.colored = false;
-vertex.color = "";
-return false;
-}
-
-//Function to check whether it is valid to color with color[colorIndex]
-boolean canColorWith(int colorIndex, Vertex vertex) {
-for(Vertex nbrvertex: vertex.adjacentVertices){
-if(nbrvertex.colored && nbrvertex.color.equals(colors[colorIndex]))
-return false;
-}
-return true;
-}
-
-}
-
-public class GraphColoring{
-public static void main(String args[]){
-//define vertices
-Vertex vertices[]= {new Vertex("A"), new Vertex("B"), new Vertex("C"), new Vertex("D")};
-
-//join verices
-vertices[0].addNeighbor(vertices[1]);
-vertices[1].addNeighbor(vertices[2]);
-vertices[2].addNeighbor(vertices[3]);
-vertices[0].addNeighbor(vertices[3]);
-
-//define colors
-String colors[] = {"Green","Blue"};
-
-//create coloring object
-Coloring coloring = new Coloring(colors, vertices.length);
-
-//start coloring with vertex-A
-boolean hasSolution = coloring.setColors(vertices[0]);
-
-//check if coloring was successful
-if (!hasSolution)
-System.out.println("No Solution");
-else {
-for (Vertex vertex: vertices){
-System.out.println(vertex.name + " "+ vertex.color +"\n");
-}
-
-}
-}
+    public static void main(String[] args) {
+        int[][] graph = {
+            {0, 1, 1, 1},
+            {1, 0, 1, 0},
+            {1, 1, 0, 1},
+            {1, 0, 1, 0}
+        };
+        new GraphC(graph).graphColoring();
+    }
 }
