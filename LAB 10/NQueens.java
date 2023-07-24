@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Queens {
+public class NQueens {
     public static void main(String[] args) {
         int N = 4;
         int[] Q = new int[N];

@@ -1,5 +1,5 @@
-import java.lang.*;
-import java.util.*;
+// import java.lang.*;
+// import java.util.*;
 class SumOf
 {
 // Returns true if there is a subset
