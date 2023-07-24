@@ -1,4 +1,5 @@
 # JAVA-LAB-EXPERIEMENTS
+![Java](https://img.shields.io/badge/Java-17.0.6-blue.svg)
 
 This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.com/srinu2003/217Y1A05C0-JAVA) course.
 
