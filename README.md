@@ -26,7 +26,7 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
 - [`LAB 9`](<LAB 9>)
     1. JobSequence (Greedy)
     <!-- 2. JobSequence -->
-    3. Single Source Shortest Path
+    2. Single Source Shortest Path
 - [`LAB 10`](<LAB 10>)
     1. N Queen's
     2. Optimal BST
