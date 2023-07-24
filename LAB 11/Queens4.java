@@ -7,7 +7,12 @@ public class Queens4{
         // args[0] = "4";
         ArrayList<int[]> Q = new ArrayList<int[]>(4);//new int[args[0]];
         // Q.set(0, null);
-        System.out.println(Q);
+        // Q.add(0, 10);
+        // Q.add(12);
+        Q.add(new int[]{11});
+        Q.add(0, new int[]{2,2,6});
+        System.out.println(Q.size());
+        System.out.println(Q.toString());
         // Dynamic(Q);
     }
 
