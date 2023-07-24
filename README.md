@@ -26,17 +26,19 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
 - [`LAB 9`](<LAB 9>)
     1. JobSequence (Greedy)
     <!-- 2. JobSequence -->
-    3. Single Source Shortest Path
+    2. Single Source Shortest Path
 - [`LAB 10`](<LAB 10>)
     1. N Queen's
     2. Optimal BST
     3. Knapsack (Dynamic)
 - [`LAB 11`](<LAB 11>)
-    1. Sum of Subset
-    2. Graph Colouring
+    1. Sum of Subset (Backtracking)
+    2. Graph Colouring (Backtracking)
     3. All Pair Shortest Path
     4. Travelling Scales Person
 - [`INTERNAL 2`](<INTERNAL 2>)
+    1. All Pair Shortest Path (Dynamic)
+    2. Applets (Checkbox, Textfield)
 <!-- ## License
 
 This repository is licensed under the MLRITM License.
