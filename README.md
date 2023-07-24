@@ -18,7 +18,7 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
     1. KnapSack (Greedy)
     <!-- 2. -->
 - [`INTERNAL 1`](<INTERNAL 1>)
-    + Knapsack (Greedy)
+    1. Knapsack (Greedy)
 - [`LAB 8`](<LAB 8>)
     1. Prims
     2. Kruskals
