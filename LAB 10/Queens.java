@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 // import java.util.Collection;
 
-public class NQueens{
+public class Queens{
     
     static int count = 0;
     public static void main(String[] args) {

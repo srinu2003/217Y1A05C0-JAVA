@@ -1,6 +1,5 @@
 import java.util.Scanner;
-public class KRUSKAL
-{
+public class KRUSKAL{
 public static void main(String[] args)
 {
 int cost[][]=new int[10][10];
