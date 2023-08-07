@@ -9,10 +9,30 @@ This repository contains my Java code for the [`217Y1A05 JAVA`](https://github.c
     1. Installing java
     2. Running Hello World
 + [`LAB 2`](<LAB 2>)
+    1. Basics
+    2. Loops
+    3. Scanner
 + [`LAB 3`](<LAB 3>)
+    1. Amstrong
+    2. Current Bill
+    3. Palindrome
+    4. Sc Arithmetic
+    5. Quadratic
+    6. Type cast
 + [`LAB 4`](<LAB 4>)
+    1. Sorting
+    2. Matrix Addition
+    3. Matrix Subtraction
 + [`LAB 5`](<LAB 5>)
+    1. Constructor Overloading
+    2. Default Constructor
+    3. Method Overloading
+    4. Non-Argument Constructor
+    5. Parametarized Constructor
 + [`LAB 6`](<LAB 6>)
+    1. Abstraction
+    2. Interface
+    3. Super class
 
 ### DAA:
 - [`LAB 7`](<LAB 7>)
